@@ -1,0 +1,437 @@
+/* ===== 1. PENGATURAN DASAR & VARIABEL WARNA ===== */
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --text-color: #212529;
+    --heading-color: #343a40;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-color: #dee2e6;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --transition: 0.3s ease;
+}
+
+/* ===== 2. TEMA DARK MODE (Canggih!) ===== */
+/* * Ini adalah cara modern. JS akan menambahkan [data-theme="dark"] 
+ * ke <html> dan semua variabel di bawah ini akan aktif.
+*/
+[data-theme="dark"] {
+    --primary-color: #00aaff;
+    --primary-hover: #0077cc;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --border-color: #333333;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 3. GLOBAL RESET & BODY ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Animasi scroll saat klik nav */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== 4. HEADER & NAVIGASI (Efek Kaca) ===== */
+.main-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 15px 0;
+    /* Efek Glassmorphism (Kaca Buram) */
+    background-color: color-mix(in srgb, var(--background-color) 70%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 500;
+    transition: color var(--transition);
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Animasi garis bawah pada nav */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0); /* Mulai dari 0 */
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.main-nav a:hover::after {
+    transform: scaleX(1); /* Tumbuh jadi 100% */
+    transform-origin: left;
+}
+
+/* ===== 5. Tombol DARK MODE (Animasi!) ===== */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    overflow: hidden; /* Sembunyikan ikon yang tidak aktif */
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+#theme-toggle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-out;
+}
+
+/* Saat tema terang, sembunyikan bulan */
+[data-theme="light"] .icon-moon { transform: translate(-50%, 150%); }
+/* Saat tema gelap, sembunyikan matahari */
+[data-theme="dark"] .icon-sun { transform: translate(-50%, -150%); }
+[data-theme="dark"] .icon-moon { transform: translate(-50%, -50%); }
+
+
+/* ===== 6. HERO SECTION & EFEK TYPING ===== */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--heading-color);
+    margin: 5px 0 10px;
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-text h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+/* Kursor untuk Efek Typing */
+#typing-effect {
+    border-right: 3px solid var(--primary-color);
+    padding-right: 3px;
+    animation: blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.hero-image img {
+    border-radius: 50%;
+    border: 5px solid var(--card-background);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: float 4s ease-in-out infinite; /* Animasi Mengambang */
+}
+
+/* Animasi Mengambang (Subtle) */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Tombol Aksi (CTA) dengan Animasi Gradient */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    color: #fff;
+    /* Animasi Latar Belakang Gradient */
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover), var(--primary-color));
+    background-size: 200% 200%;
+    animation: gradient-flow 4s ease infinite;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* ===== 7. PROJECTS GRID ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05); /* Animasi Zoom pada gambar */
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 15px;
+    border: 1px solid var(--primary-color);
+}
+
+/* ===== 8. SKILLS SECTION ===== */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* ===== 9. CONTACT FORM ===== */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* ===== 10. FOOTER ===== */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ===== 11. SEMUA ANIMASI ===== */
+
+/* Animasi saat load halaman (Hero) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-load {
+    opacity: 0; /* Sembunyikan dulu */
+    animation: fadeInUp 0.8s ease-out forwards; /* 'forwards' agar tetap di state akhir */
+}
+
+/* Animasi saat di-scroll (Intersection Observer) */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Jenis-jenis Animasi Scroll */
+.animate-on-scroll[data-animation="fade-up"] {
+    transform: translateY(30px);
+}
+.animate-on-scroll[data-animation="zoom-in"] {
+    transform: scale(0.9);
+}
+
+/* Kelas '.visible' akan ditambahkan oleh JavaScript */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ===== 12. RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 40px;
+    }
+    
+    .hero-text p {
+        margin: 20px auto 30px;
+    }
+    
+    .main-header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .main-nav ul {
+        justify-content: center;
+    }
+    
+    .main-nav li {
+        margin: 0 10px;
+    }
+}

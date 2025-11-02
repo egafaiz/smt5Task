@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Digital - [Nama Anda]</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Portfolio.</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#projects">Proyek</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <button id="theme-toggle" aria-label="Ganti tema">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="container">
+            <div class="hero-text">
+                <h2 class="animate-on-load" style="animation-delay: 0.2s;">Halo, saya</h2>
+                <h1 class="animate-on-load" style="animation-delay: 0.4s;">Ega Faiz </h1>
+                <h3 class="animate-on-load" style="animation-delay: 0.6s;">
+                    Saya seorang <span id="typing-effect"></span>
+                </h3>
+                <p class="animate-on-load" style="animation-delay: 0.8s;">
+                    Selamat datang di portfolio digital saya. Saya mengubah ide menjadi solusi yang inovatif dan menarik.
+                </p>
+                <a href="#projects" class="cta-button animate-on-load" style="animation-delay: 1s;">
+                    Lihat Proyek Saya
+                </a>
+            </div>
+            <div class="hero-image animate-on-load" style="animation-delay: 0.5s;">
+                <img src="https://via.placeholder.com/350/007bff/ffffff?text=Foto+Anda" alt="Foto Profil [Nama Anda]">
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Proyek Saya</h2>
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll" data-animation="fade-up">
+                        <img src="https://via.placeholder.com/400x250/343a40/ffffff?text=Proyek+A" alt="Proyek 1">
+                        <div class="card-content">
+                            <h3>Nama Proyek A</h3>
+                            <p>Deskripsi singkat proyek. Fokus pada teknologi modern dan desain yang responsif.</p>
+                            <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll" data-animation="fade-up" style="transition-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x250/007bff/ffffff?text=Proyek+B" alt="Proyek 2">
+                        <div class="card-content">
+                            <h3>Nama Proyek B</h3>
+                            <p>Deskripsi singkat proyek. Fokus pada teknologi modern dan desain yang responsif.</p>
+                            <div class="tags"><span class="tag">Vue</span><span class="tag">Firebase</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll" data-animation="fade-up" style="transition-delay: 0.4s;">
+                        <img src="https://via.placeholder.com/400x250/28a745/ffffff?text=Proyek+C" alt="Proyek 3">
+                        <div class="card-content">
+                            <h3>Nama Proyek C</h3>
+                            <p>Deskripsi singkat proyek. Fokus pada teknologi modern dan desain yang responsif.</p>
+                            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Keahlian</h2>
+                <div class="skills-container">
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.1s;">HTML5</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.2s;">CSS3</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.3s;">JavaScript ES6+</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.4s;">React</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.5s;">Node.js</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.6s;">Figma</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.7s;">Git & GitHub</div>
+                    <div class="skill-item animate-on-scroll" data-animation="zoom-in" style="transition-delay: 0.8s;">SQL</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Hubungi Saya</h2>
+                <form class="contact-form animate-on-scroll" data-animation="fade-up">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <textarea placeholder="Pesan Anda" rows="6" required></textarea>
+                    <button type="submit" class="cta-button">Kirim</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 [Nama Anda]. Semua hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
