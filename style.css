@@ -222,6 +222,7 @@ img {
 
 .hero-image img {
     border-radius: 50%;
+    height: 500px;
     border: 5px solid var(--card-background);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: float 4s ease-in-out infinite; /* Animasi Mengambang */
